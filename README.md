@@ -16,7 +16,7 @@ This project serves as a compelling demonstration of how computer vision and mac
       - [Project Description](#project-description)
       - [Website Screenshots](#website-screenshots)
   - [Datasets](#datasets)
-      - [Raw Images Summary](#raw-images-summary)
+      - [Raw Images Data Collection](#raw-images-data-collection)
       - [Raw Screenshots](#raw-screenshots)
       - [Processed Images Summary](#processed-images-summary)
       - [Processed Screenshots](#processed-screenshots)
@@ -52,13 +52,23 @@ Whether you're an educational institution seeking to streamline attendance manag
 
 ## Datasets:
 
-### Raw Images Summary:
+### Raw Images Data Collection:
+To assess the efficacy of the proposed system, a dataset containing thirty-six students was compiled. Facial images of volunteer students are captured using a laptop web camera and saved in a folder. The dataset utilized in this investigation encompasses 100 images for a sample size of thirty-six (36) students totaling 3,600 images, exhibiting a variety of poses, backgrounds, lighting conditions, and facial expressions. The images were standardized to dimensions of 112 pixels in height and 112 pixels in width. Additionally, 69 class group photographs were captured to evaluate the individual recognition of students' faces within group settings.
 
 ### Raw Screenshots:
+<figure align="center"> 
+  <img src="docs/images/main_page.png" alt="drawing" height="400"/>
+  <figcaption>Home Page of the Interface</figcaption>
+</figure>
 
 ### Processed Images Summary:
 
+
 ### Processed Screenshots:
+<figure align="center"> 
+  <img src="docs/images/main_page.png" alt="drawing" height="400"/>
+  <figcaption>Home Page of the Interface</figcaption>
+</figure>
 
 
 
@@ -68,12 +78,60 @@ Whether you're an educational institution seeking to streamline attendance manag
 ## Method:
 
 ### RetinaFace:
+Retina Face is the state-of-the-art model for facial detection developed as a part of the InsightFace Project. Author Jiankang Deng et al. published a paper in 2019 titled “RetinaFace: Single-stage Dense Face Localisation in the Wild”. It is a deep learning-based cutting-edge facial detector for Python coming with facial landmarks and its detection performance is amazing.
 
+RetinaFace is the face detection module of [insightface](https://github.com/deepinsight/insightface) project. The original implementation is mainly based on mxnet. Then, its tensorflow-based [re-implementation](https://github.com/StanislasBertrand/RetinaFace-tf2) is published by [Stanislas Bertrand](https://github.com/StanislasBertrand). So, this repo is heavily inspired by the study of Stanislas Bertrand. Its source code is simplified and it is transformed to pip compatible but the main structure of the reference model and its pre-trained weights are the same.
+
+**Installation** [![PyPI](https://img.shields.io/pypi/v/retina-face.svg)](https://pypi.org/project/retina-face/) [![Conda](https://img.shields.io/conda/vn/conda-forge/retina-face.svg)](https://anaconda.org/conda-forge/retina-face)
+
+The easiest way to install retinaface is to download it from [PyPI](https://pypi.org/project/retina-face/). It's going to install the library itself and its prerequisites as well.
+
+```shell
+$ pip install retina-face
+```
+
+RetinaFace is also available at [`Conda`](https://anaconda.org/conda-forge/retina-face). You can alternatively install the package via conda.
+
+```shell
+$ conda install -c conda-forge retina-face
+```
+
+Then, you will be able to import the library and use its functionalities.
+
+```python
+from retinaface import RetinaFace
+```
+
+**Face Detection** 
+
+RetinaFace offers a face-detection function. It expects an exact path of an image as input.
+
+```python
+resp = RetinaFace.detect_faces("img1.jpg")
+```
+
+Then, it will return the facial area coordinates and some landmarks (eyes, nose, and mouth) with a confidence score.
+
+```json
+{
+    "face_1": {
+        "score": 0.9993440508842468,
+        "facial_area": [155, 81, 434, 443],
+        "landmarks": {
+          "right_eye": [257.82974, 209.64787],
+          "left_eye": [374.93427, 251.78687],
+          "nose": [303.4773, 299.91144],
+          "mouth_right": [228.37329, 338.73193],
+          "mouth_left": [320.21982, 374.58798]
+        }
+  }
+}
+```
 
 ### Retinaface Output Screenshots:
 <figure align="center"> 
-  <img src="docs/images/main_page.png" alt="drawing" height="400"/>
-  <figcaption>Home Page of the Interface</figcaption>
+  <img src="Results Images/download_27.png" alt="drawing" height="720"/>
+  <figcaption>Classroom Face Detection using RetinaFace</figcaption>
 </figure>
 
 
@@ -98,8 +156,8 @@ face_locations = face_recognition.face_locations(image)
 
 ### Face Recognition Output Screenshots:
 <figure align="center"> 
-  <img src="docs/images/main_page.png" alt="drawing" height="400"/>
-  <figcaption>Home Page of the Interface</figcaption>
+  <img src="Results Images/download_Img_27.png" alt="drawing" height="720"/>
+  <figcaption>Classroom Face Recognition using face_recognition</figcaption>
 </figure>
 
 
