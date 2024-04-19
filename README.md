@@ -30,6 +30,7 @@ This project serves as a compelling demonstration of how computer vision and mac
   - [Benefits](#benefits)
   - [Applications](#applications)
   - [Future Improvements](#future-improvements)
+  - [Citations](#citations)
    
 ## Introduction
 
@@ -69,11 +70,6 @@ To assess the efficacy of the proposed system, a dataset containing thirty-six s
   <img src="docs/images/main_page.png" alt="drawing" height="400"/>
   <figcaption>Home Page of the Interface</figcaption>
 </figure>
-
-
-
-
-
 
 ## Method:
 
@@ -130,7 +126,7 @@ Then, it will return the facial area coordinates and some landmarks (eyes, nose,
 
 ### Retinaface Output Screenshots:
 <figure align="center"> 
-  <img src="Results Images/download_27.png" alt="drawing" height="720"/>
+  <img src="Results Images/download_10.png" alt="drawing" height="720"/>
   <figcaption>Classroom Face Detection using RetinaFace</figcaption>
 </figure>
 
@@ -156,7 +152,7 @@ face_locations = face_recognition.face_locations(image)
 
 ### Face Recognition Output Screenshots:
 <figure align="center"> 
-  <img src="Results Images/download_Img_27.png" alt="drawing" height="720"/>
+  <img src="Results Images/15_predicted.jpg" alt="drawing" height="720"/>
   <figcaption>Classroom Face Recognition using face_recognition</figcaption>
 </figure>
 
@@ -164,18 +160,22 @@ face_locations = face_recognition.face_locations(image)
 
 ## Results:
 
+## Facial Detection and Recognition Results
 
-
-
-
-
-
-
-
-
-
-
-
+|    Detection       |     Recognition     |  Image Size | Cropped Embeddings | Detection Accuracy (%) | Recognition Accuracy (%) | Recognition on Group Image |
+|:-----------------: |:-------------------:|:-----------:|:------------------:|:----------------------:|:------------------------:|:--------------------------:|
+| RetinaFace         |     Face Recognition    |    50x50    |         Yes    |          99.4           |           90.3          |            Yes             |
+| RetinaFace         |     Face Recognition    |    50x50    |         No     |          99.4           |           88.3          |            Yes             |
+| RetinaFace         |     Face Recognition    |   112x112   |         No     |          99.2           |           85.3          |            Yes             |
+| RetinaFace         |     Face Recognition    |   600x600   |         No     |          98.6           |           85.1          |            Yes             |
+| Face Recognition   |     Face Recognition    |    50x50    |         No     |          65.5           |           72.3          |            Yes             |
+| Face Recognition   |     Face Recognition    |   112x112   |         No     |          65.5           |           70.5          |            Yes             |
+| Yolo9              |     Face Recognition    |   112x112   |         No     |          51.7           |           58.4          |            Yes             |
+| RetinaFace         | haarcascade_frontalface |    50x50    |         No     |          99.4           |           45.2          |            Yes             |
+| Dlib               | Face Recognition        |    112x112  |         No     |          96.0           |           92.0          |            Yes             |
+| Dlib               | Face Recognition        |    112x112  |         No     |          91.0           |           86.0          |            Yes             |
+| RetinaFace         | OpenCV-LBPH        |    Extracted Images  |     No     |          100            |           91.0          |            Yes             |
+| InsightFace        | InsightFace        |    1200x1600  |            No     |          99.0           |           91.0          |            Yes             |
 
 
 ## Technical Information:
@@ -209,7 +209,7 @@ In the foreseeable future, there are numerous avenues for refining and broadenin
     - **Smarter ID Assignment**: Say goodbye to manual counting! We'll optimize ID allocation to automatically fill in missing gaps (e.g., if the IDs are 8001,8002,8003,8004,[ ],8006,8007,8008, the new image's ID will be 8005).
 
 - **Beyond the Local Machine**:
-    - **Deployment on Cloud Platforms**: We're aiming to make the system accessible from anywhere by deploying it on platforms like Google cloud, Azure, AWS, and Heroku freeing it from the limitations of a local machine.
+    - **Deployment on Cloud Platforms**: We're aiming to make the system accessible from anywhere by deploying it on platforms like Google Cloud, Azure, AWS, and Heroku freeing it from the limitations of a local machine.
 
 - **Security Boost**:
     - **Enhanced Security**: We're committed to safeguarding your data! We'll implement more robust methods for data handling and user authentication.
@@ -225,6 +225,8 @@ In the foreseeable future, there are numerous avenues for refining and broadenin
     - **Integration with Other Systems**: Seamless integration with existing systems like learning management systems or student information systems is a potential future endeavor.
 
 
+## Citations:
+[Face Detection and Face Recognition Image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fbrainalyst.in%2Fface-detection-and-face-recognition%2F&psig=AOvVaw3eSregE6CKGlWYOqkyp3Gm&ust=1713629119953000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqGAoTCNjwq7LUzoUDFQAAAAAdAAAAABCBAQ)
 
 
 
